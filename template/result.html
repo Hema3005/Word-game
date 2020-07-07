@@ -1,0 +1,57 @@
+<html lang="en" dir="ltr">
+    <head>
+        <style>
+            h1{
+                color: black;
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+            }
+            h2{
+              text-align: left;
+              color: black;
+              
+            }
+            h3{
+              color:black;
+              font-family: 'Times New Roman', Times, serif;
+
+            }
+            #correct{
+                color: green;
+            }
+            #wrong{
+                color:red;
+            }
+            body {
+              background-image: url('https://wallpaperset.com/w/full/8/8/e/200666.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+      }
+        </style>
+    </head>
+<body>
+  <nav>
+    <h1> Word Jumble!</h1>
+    <h1> Score Board</h1>
+    <h2>SCORE:{{score}} Points</h2>
+    <div id="rules"></div>
+     
+
+    {%for items in list%}
+      {%for element in items%}
+        
+          <p>{{element}}</p>
+      
+      {%endfor%}<br>
+      {%endfor%}
+    
+
+
+        </div>
+      <button id="play-btn"><a href="\start">Let's Play</a></button>
+    </div>
+  </nav>
+</body>
+
+</html>
