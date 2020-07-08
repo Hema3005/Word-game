@@ -117,8 +117,6 @@ th, td {
   
   <article>
     <h1>Here shows all words<br>click it to get meaning of that word</h1>
-     <!-- Button trigger modal -->
-     <div class="text-left"  id="words"  data-toggle="modal" data-target="#exampleModalLong"></div>
      {%for name in temp%}
     <p class="d" onclick="get_meaning(this)">{{name}}</p>    <div class="modal-body" id="meaning"></div></br>   
      {%endfor%}
