@@ -7,4 +7,4 @@
     ![start](output/word_Jumble2.PNG)
 
 ##score board
-    ![score](output/score board output.PNG)
+    ![score](output/score_board_output.PNG)
