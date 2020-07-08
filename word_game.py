@@ -34,7 +34,7 @@ def jumble(word):
 #to get 4 letters of words from reading the file
 def read_file():
     # Opening JSON file that has 4 letter english words
-    with open('./prav/word_dic.json', 'r') as openfile:
+    with open('./word_dic.json', 'r') as openfile:
     # Reading from json file 
         json_object = json.load(openfile)
         return json_object
