@@ -11,20 +11,14 @@ file_handler=RotatingFileHandler("error.log",maxBytes= 1024 * 1024 *100)
 app.logger.addHandler(file_handler)
 
 #create list 
+
 random_list=[]
 jumble_list=[]
 user_list=[]
 temp=[]
 score=0
 
-# to get meaning of correct words 
-def meaning(temp):
-    meaning=[]
-    for word in temp:
-        syn = word_net.synsets(word)[0]
-        mean=syn.definition()
-        meaning.append("Meaning of Correct word :"+mean)
-    return meaning
+
 
 def jumble(word):
 
@@ -40,7 +34,7 @@ def jumble(word):
 #to get 4 letters of words from reading the file
 def read_file():
     # Opening JSON file that has 4 letter english words
-    with open('./word_dic.json', 'r') as openfile:
+    with open('./prav/word_dic.json', 'r') as openfile:
     # Reading from json file 
         json_object = json.load(openfile)
         return json_object
@@ -50,10 +44,11 @@ def get_random_word(word_list):
    
 # pick one word randomly from the sequence
     word = random.choice(word_list)
+   
     random_list.append("Correct Word: "+word)
    
 # append a list to use later to see if the guess is correct
-     temp.append(word)
+    temp.append(word)
     return word
 
 #starting page
@@ -106,17 +101,31 @@ def result():
     j=jumble_list
     r=random_list
     u=user_list
-    m=meaning(temp)
+
+    print("\nList of Jumble Words:\n")
     print("Jumble word:",j)
+    print("\nList of correct words\n")
     print("Correct word:",r)
+    print("\nList of Your answer:\n")
     print("your answer:",u)
-    print("Meaning of word:",m)
-    z=list(zip(j,r,u,m))
+    
+    z=list(zip(j,r,u,))
     list_ans=[]
     for i in z:
         list_ans.append(list(i))
-    
-    return render_template("result.html",score=score,list=list_ans )
+    print(list_ans)    
+    return render_template("result.html",score=score,list=list_ans,temp=temp )
+
+
+#function to display meaning
+@app.route("/api/meaning",methods=['GET'])
+def word_meaning():
+    print("\nword with meaning\n")
+    answer = request.args.get("word")
+    syn = word_net.synsets(answer)[0]
+    meaning=syn.definition()
+    print(answer+': '+meaning+'\n')
+    return jsonify([meaning,answer])
 
 
 
