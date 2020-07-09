@@ -54,7 +54,7 @@ def get_random_word(word_list):
 #starting page
 @app.route('/')
 def menu():
-	return render_template("word.html")
+	return render_template("home_page.html")
 
 #put jumble word into page
 @app.route('/start')
@@ -66,7 +66,7 @@ def start():
     word_jumble=jumble(word)
     jumble_list.append("Jumble Word:"+word_jumble)
     print(word,word_jumble)
-    return render_template("word1.html",jumble=word_jumble)
+    return render_template("Word_Jumble.html",jumble=word_jumble)
 
 # used to check the user answer and increase  the score if user guess is correct
 @app.route("/api/get_entity", methods=['GET'])
@@ -114,7 +114,7 @@ def result():
     for i in z:
         list_ans.append(list(i))
     print(list_ans)    
-    return render_template("result.html",score=score,list=list_ans,temp=temp )
+    return render_template("Score_board.html",score=score,list=list_ans,temp=temp )
 
 
 #function to display meaning
