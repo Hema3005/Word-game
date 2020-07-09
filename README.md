@@ -1,10 +1,10 @@
 # Word-game
  
 ##home page
-    ![Optional Text](output/word_Jumble1.PNG)
+    ![HOME PAGE IMAGE](output_image/home_page_img.PNG)
     
 ##start page
-    ![start](output/word_Jumble2.PNG)
+    ![WORD JUMBLE IMAGE](output/Word_Jumble_img.PNG)
 
 ##score board
-    ![score](output_image/Score_board_img.PNG)
+    ![SCORE BOARD IMAGE](output_image/Score_board_img.PNG)
